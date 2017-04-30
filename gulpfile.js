@@ -1,14 +1,25 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
+var sass        = require('gulp-sass');
 
-gulp.task('browser-sync', function() {
-    browserSync.init(["*.html", "assets/css/*.css", "assets/javascript/*.js"], {
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: './'
         }
     });
+
+    gulp.watch("sass/*.scss", ['sass']);
+    gulp.watch(["*.html", "assets/js/*.js"]).on('change', browserSync.reload);
 });
 
-gulp.task('watch', ['browser-sync'], function() {
-    gulp.watch('Sound Board/css/**/*.css', ['css']);
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src("sass/main.scss")
+        .pipe(sass())
+        .pipe(gulp.dest("assets/css"))
+        .pipe(browserSync.stream());
 });
+
+gulp.task('default', ['serve']);
