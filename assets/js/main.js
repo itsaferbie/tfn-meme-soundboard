@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('div').click(function() {
+    $('a').click(function(event) {
+        event.preventDefault();
         $(this).children('audio').get(0).play();
     });
 });
