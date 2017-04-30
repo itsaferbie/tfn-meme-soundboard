@@ -5819,7 +5819,8 @@ button.close {
     display: none !important; } }
 
 .header-wrap {
-  margin: 0; }
+  margin: 0;
+  background-color: red; }
 
 .header-title {
   text-align: center; }
