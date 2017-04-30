@@ -1,21 +1,48 @@
-div{
-    margin-top:5px; 
+.header-wrap {
+  @extend .jumbotron;
+  margin: 0;
 }
 
-.box_rotate {
-  -webkit-transform: rotate(360deg);  /* Chrome, Safari 3.1+ */
-    -moz-transform: rotate(360deg);  /* Firefox 3.5-15 */
-      -ms-transform: rotate(360deg);  /* IE 9 */
-        -o-transform: rotate(360deg);  /* Opera 10.50-12.00 */
-         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera 12.50+ */
+.header-title {
+  text-align: center;
 }
-.box_transition {
-  -webkit-transition: all 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-     -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
-       -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
-          transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
-}   
 
-body {
-   overflow-x: hidden;
+.main-wrap {
+  padding: 60px 0;
+}
+
+.main-container {
+  @extend .container;
+}
+
+.audio-single {
+  @extend .col-md-4;
+}
+
+.audio-content {
+  @extend .thumbnail;
+  padding: 30px 0;
+  transition: transform ease-out 200ms;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-5px);
+
+    .audio-image {
+      border-color: #337ab7;
+    }
+  }
+}
+
+.audio-image {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: solid 1px lightgray;
+  transition: border-color ease-out 300ms;
+}
+
+.audio-title {
+  text-align: center;
+  margin: 15px 0 0;
 }
